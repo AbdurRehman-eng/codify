@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/app/ui/Footer";
+import Navbar from "@/app/ui/navbar";
 
 export const metadata: Metadata = {
   title: "Codify",
@@ -16,7 +18,9 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
