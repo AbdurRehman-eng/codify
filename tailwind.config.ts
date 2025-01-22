@@ -11,6 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: '#0E0C15',
+        logo: '#AC6AFF',
+        lightGray: "#87839B",
+      },
+      fontFamily: {
+        sortsMillGoudy: ['Sorts Mill Goudy', 'serif'], 
+        tourney: ['Tourney', 'sans-serif'],  
+        sourceCodePro: ['Source Code Pro', 'monospace'],
       },
     },
   },
