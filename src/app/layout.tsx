@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/app/ui/Footer";
 import Navbar from "@/app/ui/navbar";
-//import { Sorts_Mill_Goudy } from 'next/font/google';
-//import { Tourney } from "next/font/google";
-//import { Source_Code_Pro } from 'next/font/google';
+import { Sorts_Mill_Goudy } from 'next/font/google';
+import { Tourney } from "next/font/google";
+import { Source_Code_Pro } from 'next/font/google';
 
-/*const sourceCodePro = Source_Code_Pro({
+const sourceCodePro = Source_Code_Pro({
   weight: '400', 
   subsets: ['latin'],
 });
@@ -19,7 +19,7 @@ const tourney = Tourney({
 const sortsMillGoudy = Sorts_Mill_Goudy({
   weight: '400',
   subsets: ['latin'],
-});*/
+});
 
 export const metadata: Metadata = {
   title: "Codify",
