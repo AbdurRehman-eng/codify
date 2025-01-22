@@ -20,6 +20,8 @@ export default {
         sortsMillGoudy: ['Sorts Mill Goudy', 'serif'], 
         tourney: ['Tourney', 'sans-serif'],  
         sourceCodePro: ['Source Code Pro', 'monospace'],
+        sora: ['Sora', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },
