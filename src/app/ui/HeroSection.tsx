@@ -1,6 +1,6 @@
 function HeroSection() {
     return ( 
-        <div className="h-screen w-full bg-red-700">
+        <div className="h-screen w-full">
             No way
         </div>
     );

@@ -14,6 +14,7 @@ export default {
         primary: '#0E0C15',
         logo: '#AC6AFF',
         lightGray: "#87839B",
+        border: "#231F30",
       },
       fontFamily: {
         sortsMillGoudy: ['Sorts Mill Goudy', 'serif'], 
