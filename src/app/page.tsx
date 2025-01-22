@@ -1,9 +1,13 @@
-import Image from "next/image";
+import PaymentSection from "@/app/ui/PaymentSection";
+import HeroSection from "@/app/ui/HeroSection";
+import CardSection from "@/app/ui/CardSection";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-center">HelloWorld</p>
+    <div className="">
+      <HeroSection />
+      <CardSection />
+      <PaymentSection />
     </div>
   );
 }
