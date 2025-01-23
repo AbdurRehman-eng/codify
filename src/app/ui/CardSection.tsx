@@ -9,9 +9,9 @@ function CardSection() {
            <Image
                   src="/assets/images/cards/background.png"
                   alt="Card Background"
-                  layout="fill"
-                  objectFit="cover"
-                  className="absolute insert-0"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className="absolute inset-0"
                 />
           
     {cards.map((card) => (
