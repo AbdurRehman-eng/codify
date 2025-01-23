@@ -3,7 +3,7 @@ import Button from "@/app/ui/subui/Button"
 
 function HeroSection() {
     return ( 
-        <div className="h-[640px] w-full relative border-1 border-border">
+        <div className="h-[640px] w-full relative border-2 border-border">
             {/* Background Images */}
             <Image
                 src="/assets/images/hero/gradient.png"
