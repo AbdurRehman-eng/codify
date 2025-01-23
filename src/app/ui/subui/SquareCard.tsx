@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'; 
+import Image from "next/image"; 
 import arrow from '../../../../public/assets/images/cards/arrow.svg';
 import Link from 'next/link';
 

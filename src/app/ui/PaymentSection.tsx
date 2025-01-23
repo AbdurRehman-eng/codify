@@ -14,7 +14,7 @@ function PaymentSection() {
                 </div>
             </div>
             <div className="flex-grow flex items-center justify-center">
-                <PaymentCard text="Basic" subText="Entry to weekly tournaments and access to many other features."/>
+                <PaymentCard src="/assets/images/pricing/Price.svg" text="Basic" subText="Entry to weekly tournaments and access to many other features."/>
             </div>
         </div>
     );
