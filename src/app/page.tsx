@@ -1,6 +1,6 @@
-import PaymentSection from "@/app/ui/PaymentSection";
-import HeroSection from "@/app/ui/HeroSection";
-import CardSection from "@/app/ui/CardSection";
+import PaymentSection from "./ui/PaymentSection";
+import HeroSection from "./ui/HeroSection";
+import CardSection from "./ui/CardSection";
 
 
 export default function Home() {

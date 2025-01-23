@@ -1,0 +1,26 @@
+import React from 'react';
+
+interface ButtonProps {
+  children: string;
+  top: string;
+  left: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ children, top, left }) => {
+  return (
+    <>
+      <button
+        className={`absolute text-black font-sourceCodePro
+        text-[15px] font-extrabold bg-white w-[181px]
+        h-[59px] rounded-bl-lg rounded-tl-lg 
+        rounded-br-lg rounded-tr-[30px]
+        hover:text-button hover:shadow-2xl`}
+        style={{ top, left }}
+      >
+        {children}
+      </button>
+    </>
+  );
+};
+
+export default Button;
