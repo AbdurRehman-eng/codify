@@ -11,12 +11,11 @@ interface SquareCardProps {
   bgSrc: string
 }
 const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, bgSrc}) => {
-  const c:string[] = ['89,230,255','253,207,126']
   const rgbaBorderColor = `rgba(${color}, 0.7)`; 
 
   return (
     <div
-    className={`relative flex h-[294px] w-[273px] flex-shrink-0 
+    className={`relative flex h-[294px] w-[283px] flex-shrink-0 
                 items-end gap-[62px] overflow-hidden bg-primary
                 border-t-[4px] border-r border-b border-l border-solid
                 rounded-tl-3xl rounded-bl-3xl rounded-br-3xl 
