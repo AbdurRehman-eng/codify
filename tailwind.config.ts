@@ -16,6 +16,9 @@ export default {
         lightGray: "#87839B",
         border: "#231F30",
         button: "#AB80E0",
+        secondary: '#E8DEF8',
+        stroke: '#67666C',
+        paymentcardtext: '#FFC876'
       },
       fontFamily: {
         sortsMillGoudy: ['Sorts Mill Goudy', 'serif'], 

@@ -3,7 +3,7 @@ import Button from "@/app/ui/subui/Button"
 
 function HeroSection() {
     return ( 
-        <div className="h-[640px] w-full relative border-2 border-border">
+        <div className="h-screen w-full relative border-2 border-border">
             {/* Background Images */}
             <Image
                 src="/assets/images/hero/gradient.png"
@@ -50,7 +50,7 @@ function HeroSection() {
             </div>
             
 
-         <Button children={"Get Started"} top="310px" left="520px"/>
+            <Button children={"Get Started"} top="310px" left="520px" pos="absolute"/>
 
             <div className="absolute z-1 text-lightGray w-[433px] h-auto text-center top-[415px] left-[390px] font-sourceCodePro text-[11px] font-normal ">
                HELPING STUDENTS TO BECOME COMPETENT IN CODING RELATED ACTIVITIES
