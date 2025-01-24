@@ -18,7 +18,8 @@ export default {
         button: "#AB80E0",
         secondary: '#E8DEF8',
         stroke: '#67666C',
-        paymentcardtext: '#FFC876'
+        paymentcardtext: '#FFC876',
+        paymentcardtext2: '#FF776F',
       },
       fontFamily: {
         sortsMillGoudy: ['Sorts Mill Goudy', 'serif'], 
