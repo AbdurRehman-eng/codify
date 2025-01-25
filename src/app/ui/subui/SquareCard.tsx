@@ -11,7 +11,6 @@ interface SquareCardProps {
   bgSrc: string
 }
 const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, bgSrc}) => {
-  const c:string[] = ['89,230,255','253,207,126']
   const rgbaBorderColor = `rgba(${color}, 0.7)`; 
 
   return (
