@@ -4,16 +4,16 @@ interface ButtonProps {
   children: string;
   top: string;
   left: string;
+  pos: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, top, left }) => {
+const Button: React.FC<ButtonProps> = ({ children, top, left, pos  }) => {
   return (
     <>
       <button
-        className={`absolute text-black font-sourceCodePro
-        text-[15px] font-extrabold bg-white w-[181px]
-        h-[59px] rounded-bl-lg rounded-tl-lg 
-        rounded-br-lg rounded-tr-[30px]
+        className={`${pos} text-black font-sourceCodePro
+        text-[2.5vh] font-extrabold bg-white rounded-bl-lg rounded-tl-lg 
+        rounded-br-lg rounded-tr-[5vh]
         hover:text-button hover:shadow-2xl`}
         style={{ top, left }}
       >
