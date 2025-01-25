@@ -11,11 +11,11 @@ function CardSection() {
         alt="Card Background"
         fill
         style={{ objectFit: "cover" }}
-        className="absolute inset-0"
+        className=""
       />
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-3 gap-8 place-items-center">
+      <div className="grid grid-cols-3 gap-[5vh] place-items-center">
         {cards.slice(0, 6).map((card) => (
           <SquareCard
             key={card.id}

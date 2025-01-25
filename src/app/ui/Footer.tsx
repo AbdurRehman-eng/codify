@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 
 function Footer() {
   return (
-    <footer className="w-full h-[63px] flex items-center justify-between px-[60]">
+    <footer className="w-full h-[63px] bottom-0 flex items-center justify-between px-[60] border-t-[1px] border-opacity-50 border-t-stroke">
       {/* Left Content */}
       <div className="text-lightGray font-sourceCodePro text-[11px] font-medium">
         © 2025. All rights reserved.
