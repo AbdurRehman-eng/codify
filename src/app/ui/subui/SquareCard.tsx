@@ -19,7 +19,7 @@ const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, 
                 items-end gap-[9.8vh] overflow-hidden bg-primary
                 border-t-[0.64vh] border-r border-b border-l border-solid
                 rounded-tl-[3.8vh] rounded-bl-[3.8vh] rounded-br-[3.8vh] 
-                rounded-tr-[11vh] hover:scale-105 hover:transition-all hover:duration-300 hover:ease-in-out group
+                rounded-tr-[11vh] hover:scale-[102%] hover:transition-all hover:duration-200 hover:ease-in-out group
               `}
     style={{
       borderColor: rgbaBorderColor, 
