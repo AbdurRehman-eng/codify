@@ -4,7 +4,7 @@ import { cards } from '@/../public/assets/data/cards';
 
 function CardSection() {
   return (
-    <div className="relative h-full w-full p-8">
+    <div className="relative h-full w-full p-8 px-[20vh]">
       {/* Background Image */}
       <Image
         src="/assets/images/cards/background.png"

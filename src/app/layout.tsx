@@ -7,6 +7,12 @@ import { Tourney } from "next/font/google";
 import { Source_Code_Pro } from 'next/font/google';
 import { Sora } from 'next/font/google';
 import { Inter } from 'next/font/google'; 
+import { Tektur } from 'next/font/google';
+
+const tektur = Tektur({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
 
 const inter = Inter({
   weight: "400",  // Customize the weight as needed

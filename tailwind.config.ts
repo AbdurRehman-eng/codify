@@ -27,6 +27,7 @@ export default {
         sourceCodePro: ['Source Code Pro', 'monospace'],
         sora: ['Sora', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        tektur: ['Tektur', 'sans-serif'],
       },
     },
   },
