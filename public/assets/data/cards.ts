@@ -21,7 +21,7 @@ export const cards: Card[] = [
   },
   {
     id: 2,
-    title: "LeadBoard",
+    title: "LeaderBoard",
     detail:
       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     color: "253,207,126",
@@ -30,7 +30,7 @@ export const cards: Card[] = [
   },
   {
     id: 3,
-    title: "Shop",
+    title: "Store",
     detail:
       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     color: "245,47,242",
@@ -57,7 +57,7 @@ export const cards: Card[] = [
   },
   {
     id: 6,
-    title: "Buy Coins",
+    title: "BuyCoins",
     detail:
       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     color: "111,80,213",

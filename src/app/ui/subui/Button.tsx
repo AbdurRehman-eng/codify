@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({ children, top, left, pos  }) => {
       <button
         className={`${pos} text-black font-sourceCodePro
         text-[2.5vh] font-extrabold bg-white rounded-bl-lg rounded-tl-lg 
-        rounded-br-lg rounded-tr-[5vh]
+        rounded-br-lg rounded-tr-[5vh] w-[25.8929vh] h-[8.0357vh]
         hover:text-button hover:shadow-2xl hover:scale:[102%] hover:transition-all hover:duration-200 hover:ease-in-out`}
         style={{ top, left }}
       >

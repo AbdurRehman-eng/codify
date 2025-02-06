@@ -37,7 +37,7 @@ const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, 
 
       {/* Card Content */}
       <h1
-        className="absolute left-[2.69vh] top-[5.4vh] w-[16.8vh] text-center 
+        className="absolute left-[2.69vh] top-[5.4vh] w-[16.8vh] text-left ml-2
                   font-inter text-[2.53vh] font-normal text-white"
       >
         {title}
@@ -61,7 +61,7 @@ const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, 
 
       {/* Clickable Link */}
       <Link
-        href={'/explore'}
+        href={`/${title}`}
         className="absolute left-[23.4vh] top-[35.13vh] font-sourceCodePro 
                    text-[1.6vh] font-extrabold text-white z-2"
       >
