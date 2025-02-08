@@ -1,52 +1,14 @@
-import Image from "next/legacy/image";
+import SocialIcons from "./subui/SocialIcons";
 
 function Footer() {
   return (
-    <footer className="w-full h-[63px] bottom-0 flex items-center justify-between px-[60] border-t-[1px] border-opacity-50 border-t-stroke">
+    <footer className="w-full h-[11.25vh] bottom-[0vh] flex items-center justify-between  px-[11.8571vh] border-t-[0.1786vh] border-opacity-50 border-t-stroke">
       {/* Left Content */}
-      <div className="text-lightGray font-sourceCodePro text-[11px] font-medium">
+      <div className="text-lightGray font-sourceCodePro text-[1.9643vh] font-medium">
         © 2025. All rights reserved.
       </div>
 
-      {/* Right Content: Social Media Links */}
-      <div className="flex items-center space-x-6">
-        <a href="https://www.discord.com" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/assets/images/footer/Component1.svg"
-            alt="Discord Icon"
-            width={32}
-            height={32}
-            className="cursor-pointer"
-          />
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/assets/images/footer/Component2.svg"
-            alt="Instagram Icon"
-            width={32}
-            height={32}
-            className="cursor-pointer"
-          />
-        </a>
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/assets/images/footer/Component3.svg"
-            alt="Facebook Icon"
-            width={32}
-            height={32}
-            className="cursor-pointer"
-          />
-        </a>
-        <a href="https://www.skype.com" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/assets/images/footer/Component4.svg"
-            alt="Skype Icon"
-            width={32}
-            height={32}
-            className="cursor-pointer"
-          />
-        </a>
-      </div>
+      <SocialIcons/>
     </footer>
   );
 }
