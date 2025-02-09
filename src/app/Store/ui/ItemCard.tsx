@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Button from '@/app/ui/subui/Button'
 
 interface StoreCardProps{
-  number: number;
+  number: string;
   name: string;
   type: string;
   price: string;
