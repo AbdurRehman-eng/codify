@@ -6,16 +6,17 @@ interface StoreCardProps{
   number: string;
   name: string;
   type: string;
+  features: string[];
   price: string;
   currency: string;
 }
 
-const ItemCard: React.FC<StoreCardProps> = ({number,name,type,price,currency}) => {
+const ItemCard: React.FC<StoreCardProps> = ({number,name,type,features,price,currency}) => {
   return (
 <div className="w-[39.8214vh] h-[57.1429vh] bg-[rgba(37,37,39,0.5)] mt-[4.2857vh] rounded-[4.2857vh] backdrop-blur-lg shadow-[0_4px_4px_rgba(0,0,0,0.4)]">
     <div className='w-[35.7143vh] h-[35.3571vh] flex justify-center items-center rounded-[2.8571vh] ml-[2.1429vh] mt-[2.1429vh] shadow-md '>
       <Image  
-        src={`/assets/images/Store/${type}${number}.png`}
+     src={`/assets/images/Store/${type}${number}.${type === "Background" ? "jpg" : "png"}`}
         alt="Image"
         width={900}
         height={800}

@@ -24,7 +24,7 @@ const SideSelector: React.FC<SideSelectorProps> = ({ onApplyFilters }) => {
   };
 
   return (
-    <div className="bg-[rgba(37,37,39,0.4)] w-[48.3929vh] h-[89.2857vh] mt-[14.2857vh] rounded-[4.2857vh] flex flex-col
+    <div className="bg-[rgba(37,37,39,0.4)] w-[48.3929vh] h-[89.2857vh] mt-[14.2857vh] mb-[5.4vh] rounded-[4.2857vh] flex flex-col
                       shadow-[0_4px_6px_rgba(0,0,0,0.4)] backdrop-blur-md">
       <p className="font-tektur font-bold text-[3.5714vh] text-white ml-[5vh] mt-[5vh] mb-[2.8571vh]">
         Categories

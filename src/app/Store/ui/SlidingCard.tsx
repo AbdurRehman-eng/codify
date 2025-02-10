@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-  "/assets/images/Store/background1.jpg",
-  "/assets/images/Store/background2.jpg",
-  "/assets/images/Store/background3.jpg"
+  "/assets/images/Store/Background1.jpg",
+  "/assets/images/Store/Background2.jpg",
+  "/assets/images/Store/Background3.jpg",
+  "/assets/images/Store/Background4.jpg",
+  "/assets/images/Store/Background5.jpg",
 ];
 
 const SlidingCard = () => {

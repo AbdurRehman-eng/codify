@@ -9,6 +9,7 @@ interface Item {
 }
 
 const SelectorItem: React.FC<Item> = ({ title, onSelect, selected }) => {
+ 
   return (
     <div className="font-tektur font-medium text-[2.6786vh] text-[#8F8D8C] flex ml-[5.7143vh] mt-[0.7143vh] items-center">
       <div
