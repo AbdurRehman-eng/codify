@@ -13,7 +13,7 @@ export const store: Store[] = [
         id: 1,
         name: "Sekiro",
         type: "Pfp",
-        features: ["Pfp","Most Popular","Diamond"],
+        features: ["Pfp","Most Popular","Diamond","All Items"],
         number: "1",
         price: "5",
         currency: "Diamond"
@@ -22,7 +22,7 @@ export const store: Store[] = [
         id: 2,
         name: "HollowKnight",
         type: "Pfp",
-        features: ["Pfp","Gold","Recent"],
+        features: ["Pfp","Gold","Recent","All Items"],
         number: "2",
         price: "90",
         currency: "GoldCoin"
@@ -32,7 +32,7 @@ export const store: Store[] = [
         id: 3,
         name: "Gengar",
         type: "Pfp",
-        features: ["Pfp","Diamond"],
+        features: ["Pfp","Diamond","All Items"],
         number: "3",
         price: "10",
         currency: "Diamond"
@@ -42,7 +42,7 @@ export const store: Store[] = [
         id: 4,
         name: "Terrorance",
         type: 'Background',
-        features: ["Background","Gold"],
+        features: ["Background","Gold","All Items"],
         number: "1",
         price: "20",
         currency: "GoldCoin"
@@ -52,7 +52,7 @@ export const store: Store[] = [
         id: 5,
         name: "Shadow Warrior",
         type: "Background",
-        features: ["Background","Diamond"],
+        features: ["Background","Diamond","All Items"],
         number: "2",
         price: "18",
         currency: "Diamond"
@@ -62,7 +62,7 @@ export const store: Store[] = [
         id: 6,
         name: "Fortnite",
         type: "Background",
-        features: ["Background","Diamond"],
+        features: ["Background","Diamond","All Items"],
         number: "3",
         price: "25",
         currency: "Diamond"
@@ -72,7 +72,7 @@ export const store: Store[] = [
         id: 7,
         name: "Diablo",
         type: "Background",
-        features: ["Background","Gold"],
+        features: ["Background","Gold","All Items"],
         number: "4",
         price: "60",
         currency: "GoldCoin"
@@ -82,7 +82,7 @@ export const store: Store[] = [
         id: 8,
         name: "Witcher",
         type: "Background",
-        features: ["Background","Recent","Most Popular","Diamond"],
+        features: ["Background","Recent","Most Popular","Diamond","All Items"],
         number: "5",
         price: "30",
         currency: "Diamond"
