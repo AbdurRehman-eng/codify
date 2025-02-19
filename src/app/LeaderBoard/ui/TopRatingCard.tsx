@@ -56,7 +56,7 @@ const TopRatingCard: React.FC<TopRatingCardProps> = ({place,username,points,priz
         <div className='font-tektur text-white font-medium text-[24px]  flex justify-center  h-[31px] mr-7'>
         <Image  
             src="/assets/images/leaderboard/Diamond.svg"
-            alt="line"
+            alt="Diamond"
             width={21}
             height={21}
             className="mr-2 mt-1"
