@@ -21,7 +21,7 @@ const filteredStore = selectedFilters.length > 0
 
 
   return (
-    <div className="relative w-screen min-h-screen flex">
+    <div className="relative w-screen min-h-screen flex mt-5">
       {/* Sidebar */}
       <div className="w-[88.7857vh] min-h-screen flex justify-center items-start">
         <SideSelector onApplyFilters={handleFiltersApply} />
