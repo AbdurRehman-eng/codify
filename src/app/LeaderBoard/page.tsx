@@ -9,7 +9,7 @@ import { ratings } from '@/../public/assets/data/Ratings';
 const page = () => {
   return (
   
-<div className='h-full  flex flex-col my-[50px]'>
+<div className='h-full  flex flex-col my-[55px]'>
 
 <div className='h-[80] flex justify-center items-end '>
    <Selector/>
