@@ -72,7 +72,7 @@ const Navbar = () => {
                         <div className="absolute left-1 mt-1 w-36 bg-primary text-black border  rounded-md shadow-lg font-tektur text-[14px]">
                             <ul className="py-2">
                                 <li>
-                                    <Link href="/Profile" className="block px-4 py-2 hover:bg-gray-100 hover:text-primary text-white" onClick={()=>setIsDropdownOpen(false)}>Profile</Link>
+                                <Link href="/Profile/Achievements" className="block px-4 py-2 hover:bg-gray-100 hover:text-primary text-white" onClick={()=>setIsDropdownOpen(false)}>Profile</Link>
                                 </li>
                                 <li>
                                     <Link href="/Store" className="block px-4 py-2 hover:bg-gray-100 hover:text-primary text-white" onClick={()=>setIsDropdownOpen(false)}>Store</Link>

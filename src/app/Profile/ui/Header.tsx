@@ -1,4 +1,4 @@
-import HeaderItem from './subui/HeaderItem';
+import HeaderItem from "./HeaderItem";
 
 const Header = () => {
   return (

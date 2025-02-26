@@ -1,20 +1,16 @@
-import React from 'react'
-import Sidebar from './ui/Sidebar'
-import Header from './ui/Header'
-import MainContent from './ui/MainContent'
+"use client"; // Make sure this is a client component
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const page = () => {
-  return (
-    <div className='flex'>
-    <Sidebar/>
-    <div className='flex flex-col w-[840px]'>
-    <Header/>
-    <MainContent/>
-    </div>
+const ProfilePage = () => {
+  const router = useRouter();
 
-    </div>
-  )
-}
+  useEffect(() => {
+    router.push("/profile/achievements"); // Redirect to Achievements by default
+  }, [router]);
 
-export default page
+  return null; // Don't render anything
+};
+
+export default ProfilePage;
