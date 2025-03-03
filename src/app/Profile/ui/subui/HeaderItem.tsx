@@ -1,13 +1,17 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface HeaderItemProps {
   title: string; // Accepts title as a prop
+  route: string;
 }
 
-const HeaderItem: React.FC<HeaderItemProps> = ({ title }) => {
+const HeaderItem: React.FC<HeaderItemProps> = ({ title, route }) => {
+  const router = useRouter();
   return (
-    <div className={`w-[124px] h-[33px] ml-5 mr-2  flex text-[12px] font-tektur 
+    <div onClick={() => {router.push(`/Profile/${route}`)}} className={`w-[124px] h-[33px] ml-5 mr-2  flex text-[12px] font-tektur 
     ${title === "Achievements" ? 'border-b-[1.4px] border-[#B3FFED] text-[#B3FFED]' : 'text-[#9A999E]'}`}>
       <Image
         src={`/assets/images/Profile/Header/${title}-active.svg`}

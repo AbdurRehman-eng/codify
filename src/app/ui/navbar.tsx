@@ -3,9 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { handleClientScriptLoad } from "next/script";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+    const router = useRouter()
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +27,7 @@ const Navbar = () => {
         <div className="bg-primary h-[88px] fixed top-0 left-0 shadow-lg border-[0.3571vh] border-[#212023] z-20 w-full flex items-center">
             
             {/* Left Section (Brand) */}
-            <div className="flex items-center ml-[41px]">
+            <div className="flex items-center ml-[41px] hover:cursor-pointer" onClick={() => {router.push('/')}}>
                 <div className="red w-[110px] h-[42px] text-[32px] font-medium font-tektur text-white">
                     Codify
                 </div>
@@ -125,10 +126,6 @@ const Navbar = () => {
                             className="w-[40px] h-[40px] ml-[28px] mr-[10px]"
                             quality={100}
                         />
-                        
-
-                
-
             </div>
     );
 };
