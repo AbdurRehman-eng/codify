@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function PaymentSection() {
     return ( 
-        <div className="h-screen w-full bg-primary flex flex-col text-white">
+        <div className="h-screen w-full bg-primary flex flex-col text-white border-2 border-border mt-1">
             
             <div className="flex flex-col items-center text-center">
                 <div className="w-full h-[15vh] flex items-center justify-center font-sourceCodePro text-[2vh]">

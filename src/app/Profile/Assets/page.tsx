@@ -1,7 +1,8 @@
+import MainContent from './ui/MainContent'
 function Assets() {
     return ( 
-        <div className="w-full h-full bg-white">
-
+        <div>
+          <MainContent/>
         </div>
     );
 }

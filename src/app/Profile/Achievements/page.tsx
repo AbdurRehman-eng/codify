@@ -1,4 +1,4 @@
-import MainContent from '../ui/MainContent'
+import MainContent from './ui/MainContent'
 
 function Achievements() {
     return ( 

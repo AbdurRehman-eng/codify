@@ -1,18 +1,10 @@
 import SquareCard from './subui/SquareCard';
-import Image from "next/image";
+
 import { cards } from '@/../public/assets/data/cards';
 
 function CardSection() {
   return (
-    <div className="relative h-full w-full p-8 px-[20vh]">
-      {/* Background Image */}
-      <Image
-        src="/assets/images/cards/background.png"
-        alt="Card Background"
-        fill
-        style={{ objectFit: "cover" }}
-        className=""
-      />
+    <div className="relative h-full w-full p-8 px-[20vh] border-2 border-border mt-1">
 
       {/* Cards Grid */}
       <div className="grid grid-cols-3 gap-[5vh] place-items-center">

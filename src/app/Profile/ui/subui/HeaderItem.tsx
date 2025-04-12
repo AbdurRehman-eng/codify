@@ -10,9 +10,11 @@ interface HeaderItemProps {
 
 const HeaderItem: React.FC<HeaderItemProps> = ({ title, route }) => {
   const router = useRouter();
+  function setTitle(title: string) {
+    title = title; }
   return (
-    <div onClick={() => {router.push(`/Profile/${route}`)}} className={`w-[124px] h-[33px] ml-5 mr-2  flex text-[12px] font-tektur 
-    ${title === "Achievements" ? 'border-b-[1.4px] border-[#B3FFED] text-[#B3FFED]' : 'text-[#9A999E]'}`}>
+    <div onClick={() => {router.push(`/Profile/${route}`)}} className={`w-[124px] h-[33px] ml-5 mr-2  flex text-[12px] font-tektur hover:cursor-pointer
+    ${title === "Achievements" ? 'border-b-[1.4px] border-[#B3FFED] text-[#B3FFED]' : 'text-[#9A999E]'}`} >
       <Image
         src={`/assets/images/Profile/Header/${title}-active.svg`}
         alt={`Icon`}
