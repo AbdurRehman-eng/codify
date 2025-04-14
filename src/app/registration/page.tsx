@@ -1,11 +1,9 @@
-import Reg1 from "./reg1";
+import React from 'react'
 
-function Registration() {
-    return ( 
-        <div>
-            <Reg1 />
-        </div>
-    );
+const page = () => {
+  return (
+    <div>gek</div>
+  )
 }
 
-export default Registration;
+export default page
