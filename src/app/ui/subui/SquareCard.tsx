@@ -11,6 +11,7 @@ interface SquareCardProps {
   bgSrc: string
 }
 const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, bgSrc}) => {
+  const URL = title === "Profile" ? "Profile/Achievements" : title;
   const rgbaBorderColor = `rgba(${color}, 0.7)`; 
 
   return (
@@ -61,7 +62,7 @@ const SquareCard: React.FC<SquareCardProps> = ({ title, detail, color, iconSrc, 
 
       {/* Clickable Link */}
       <Link
-        href={`/${title}`}
+        href={`/${URL}`}
         className="absolute left-[23.4vh] top-[35.13vh] font-sourceCodePro 
                    text-[1.6vh] font-extrabold text-white z-2"
       >

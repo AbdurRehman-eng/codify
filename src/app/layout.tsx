@@ -25,7 +25,7 @@ const sora = Sora({
 });
 
 const sourceCodePro = Source_Code_Pro({
-  weight: '400', 
+  weight: '300', 
   subsets: ['latin'],
 });
 
