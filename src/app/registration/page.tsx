@@ -1,9 +1,14 @@
-import React from 'react'
+'use client';
 
-const page = () => {
-  return (
-    <div>gek</div>
-  )
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function RegistrationPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/Registration/Step1');
+  }, [router]);
+
+  return null;
 }
-
-export default page

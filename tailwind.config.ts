@@ -32,6 +32,9 @@ export default {
         inter: ['Inter', 'sans-serif'],
         tektur: ['Tektur', 'sans-serif'],
       },
+      boxShadow: {
+        'inner-and-drop': 'inset 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25)',
+      },
     },
   },
   plugins: [],

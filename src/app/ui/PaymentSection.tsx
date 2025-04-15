@@ -1,5 +1,4 @@
 import PaymentCard from "@/app/ui/subui/PaymentCard";
-import Button from "./subui/Button";
 import Image from "next/image";
 
 function PaymentSection() {
