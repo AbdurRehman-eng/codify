@@ -1,3 +1,5 @@
+"use client";
+import { SessionProvider } from "next-auth/react";
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "./ui/Footer";
@@ -8,6 +10,7 @@ import { Source_Code_Pro } from 'next/font/google';
 import { Sora } from 'next/font/google';
 import { Inter } from 'next/font/google'; 
 import { Tektur } from 'next/font/google';
+import { Toaster } from "@/components/ui/sonner";
 
 const tektur = Tektur({
   subsets: ['latin'],
@@ -39,10 +42,6 @@ const sortsMillGoudy = Sorts_Mill_Goudy({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: "Codify",
-  description: "A platform for coding competitions where developers can solve challenges, participate in contests, and improve their programming skills with real-time evaluations and leaderboards.",
-};
 
 export default function RootLayout({
   children,
@@ -51,12 +50,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`antialiased`} >
+      <SessionProvider>
         <Navbar />
+        <Toaster/>
         {children}
         <Footer />
+      </SessionProvider>
       </body>
     </html>
   );
