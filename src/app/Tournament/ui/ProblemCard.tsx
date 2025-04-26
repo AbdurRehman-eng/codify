@@ -1,22 +1,24 @@
-import React from 'react'
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 interface ProblemCardProps {
-  first?: boolean
-  title: string
-  points: number | string
-  difficulty: 'easy' | 'medium' | 'hard'
+  first?: boolean;
+  title: string;
+  points: number | string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  id: string;  // Add the problem id as a prop
 }
 
 const difficultyStyles = {
   easy: 'text-[#1CBABA] border-[#1CBABA]',
   medium: 'text-[#FFB700] border-[#FFB700]',
   hard: 'text-[#F23737] border-[#F23737]',
-}
+};
 
-const ProblemCard = ({ first = false, title, points, difficulty }: ProblemCardProps) => {
+const ProblemCard = ({ first = false, title, points, difficulty}: ProblemCardProps) => {
   return (
-    <Link href="/Tournament/Easy" // This is where the link will navigate
+    <Link
+      href={`/Tournament/Problem`} // Dynamically link to the problem using its ID
       className={`flex h-[71px] w-[430px] rounded-2xl 
         ${first ? 'mt-[50px]' : 'mt-[23px]'} ml-[30px]
         bg-[#141723] shadow-[0_4px_4px_rgba(0,0,0,0.25)]
@@ -30,10 +32,9 @@ const ProblemCard = ({ first = false, title, points, difficulty }: ProblemCardPr
           {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
         </span>
       </p>
-
       <p className="w-[40%] pl-[75px]">{points} Points</p>
     </Link>
-  )
-}
+  );
+};
 
-export default ProblemCard
+export default ProblemCard;
