@@ -11,6 +11,7 @@ import { Sora } from 'next/font/google';
 import { Inter } from 'next/font/google'; 
 import { Tektur } from 'next/font/google';
 import { Toaster } from "@/components/ui/sonner";
+import { ServerAppProviders } from './providers';
 
 const tektur = Tektur({
   subsets: ['latin'],
@@ -51,12 +52,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`} >
+        {/* <ServerAppProviders>aaaa */}
       <SessionProvider>
         <Navbar />
         <Toaster/>
         {children}
         <Footer />
       </SessionProvider>
+      {/* </ServerAppProviders> */}
       </body>
     </html>
   );
