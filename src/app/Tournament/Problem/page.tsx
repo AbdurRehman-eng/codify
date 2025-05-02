@@ -1,61 +1,82 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CodeEditor from "./ui/CodeEditor";
 import LanguageSelector from "./ui/LanguageSelector";
 import OutputPanel from "./ui/OutputPanel";
 import { Play } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Confetti from "react-confetti"; 
-import problems from "./problems.json";
+import Confetti from "react-confetti";
 
-export default function Home() {
-  const [code, setCode] = React.useState<string>("");
-  const [output, setOutput] = React.useState<string>("");
-  const [language, setLanguage] = React.useState<string>("javascript");
-  const [error, setError] = React.useState<string>("");
-  const [isRunning, setIsRunning] = React.useState<boolean>(false);
-  const [selectedProblem, setSelectedProblem] = React.useState<any>(problems[0]); // Automatically select the first problem
-  const [showResults, setShowResults] = React.useState<boolean>(false); // State to track whether to show results or description
-  const [hasRunCode, setHasRunCode] = React.useState<boolean>(false); // Track if the code has been run
-  const [passedTests, setPassedTests] = React.useState<number>(0); // Track passed test cases
-  const [totalTests, setTotalTests] = React.useState<number>(0); // Track total test cases
-  const [showConfetti, setShowConfetti] = React.useState<boolean>(false); // State to show confetti
+interface TestCase {
+  input: string;
+  expectedOutput: string;
+}
 
-  React.useEffect(() => {
+interface Problem {
+  _id: string;
+  title: string;
+  description: string;
+  starterCode: string;
+  testCases: TestCase[];
+}
+
+export default function TournamentProblemPage() {
+  const [code, setCode] = useState<string>("");
+  const [output, setOutput] = useState<string>("");
+  const [language, setLanguage] = useState<string>("javascript");
+  const [error, setError] = useState<string>("");
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null); // Updated to Problem type
+  const [showResults, setShowResults] = useState<boolean>(false);
+  const [hasRunCode, setHasRunCode] = useState<boolean>(false);
+  const [passedTests, setPassedTests] = useState<number>(0);
+  const [totalTests, setTotalTests] = useState<number>(0);
+  const [showConfetti, setShowConfetti] = useState<boolean>(false);
+  const [problems, setProblems] = useState<Problem[]>([]);
+
+  useEffect(() => {
+    // Fetch problems from the API on component mount
+    async function fetchProblems() {
+      const res = await fetch("/api/problems");
+      const data = await res.json();
+      setProblems(data);
+      setSelectedProblem(data[0]); 
+    }
+    fetchProblems();
+  }, []);
+
+  useEffect(() => {
     if (selectedProblem) {
       const allTestCasesInput = selectedProblem.testCases
-        .map((testCase: any) => testCase.input) 
-        .join(""); 
-  
-      setCode(selectedProblem.starterCode + allTestCasesInput); // Combine starter code and all inputs
+        .map((testCase: TestCase) => testCase.input)
+        .join("");
+
+      setCode(selectedProblem.starterCode + allTestCasesInput);
     }
   }, [language, selectedProblem]);
-  
 
   const handleRun = async () => {
     if (!selectedProblem) {
       setError("Please select a problem to solve.");
       return;
     }
-  
+
     setIsRunning(true);
     setError("");
     setOutput("");
-    setPassedTests(0); // Reset passed tests count
-    setTotalTests(selectedProblem.testCases.length); // Set total tests count
-  
+    setPassedTests(0);
+    setTotalTests(selectedProblem.testCases.length);
+
     try {
       if (code.trim() === "") {
         throw new Error("Please enter some code to run");
       }
-  
+
       const expectedOutput = selectedProblem.testCases
         .slice(0, 3)
-        .map((testCase: any) => testCase.expectedOutput);
-  
+        .map((testCase: TestCase) => testCase.expectedOutput);
+
       const response = await fetch("/api/execute", {
         method: "POST",
         headers: {
@@ -63,9 +84,9 @@ export default function Home() {
         },
         body: JSON.stringify({ code, language, expectedOutput }),
       });
-  
+
       const data = await response.json();
-  
+
       if (data.error) {
         setError(data.error);
       } else {
@@ -74,17 +95,12 @@ export default function Home() {
           (result: { passed: boolean }) => result.passed
         ).length;
         setPassedTests(passedCount);
-  
+
         setOutput(
           data.testResults.map(
-            (
-              result: { expectedOutput: any; actualOutput: any; passed: boolean },
-              index: number
-            ) => (
+            (result: { expectedOutput: string; actualOutput: string; passed: boolean }, index: number) => (
               <div key={index} className="bg-gray-900 p-4 mb-4 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-blue-400">
-                  Test Case {index + 1}
-                </h3>
+                <h3 className="text-xl font-semibold text-blue-400">Test Case {index + 1}</h3>
                 <div className="my-2">
                   <p className="font-medium text-gray-300">Expected:</p>
                   <p className="text-sm text-gray-200">{result.expectedOutput}</p>
@@ -94,11 +110,7 @@ export default function Home() {
                   <p className="text-sm text-gray-200">{result.actualOutput}</p>
                 </div>
                 <div className="my-2">
-                  <p
-                    className={`font-semibold ${
-                      result.passed ? "text-green-400" : "text-red-400"
-                    }`}
-                  >
+                  <p className={`font-semibold ${result.passed ? "text-green-400" : "text-red-400"}`}>
                     Status: {result.passed ? "Passed" : "Failed"}
                   </p>
                 </div>
@@ -106,7 +118,7 @@ export default function Home() {
             )
           )
         );
-  
+
         if (passedCount === selectedProblem.testCases.length) {
           toast.success("All tests passed! 🎉", {
             position: "top-right",
@@ -115,12 +127,11 @@ export default function Home() {
             closeOnClick: true,
             draggable: true,
           });
-          setShowConfetti(true); // Show confetti when all tests pass
-  
-          // Hide the confetti after 3-4 seconds
+          setShowConfetti(true);
+
           setTimeout(() => {
-            setShowConfetti(false); // Hide confetti after 3-4 seconds
-          }, 6000); // 4000ms = 4 seconds
+            setShowConfetti(false);
+          }, 6000);
         } else {
           toast.error("Some tests failed 😔", {
             position: "top-right",
@@ -129,10 +140,10 @@ export default function Home() {
             closeOnClick: true,
             draggable: true,
           });
-          setShowConfetti(false); // Hide confetti when not all tests pass
+          setShowConfetti(false);
         }
       }
-  
+
       setHasRunCode(true);
       setShowResults(true);
     } catch (err: unknown) {
@@ -145,10 +156,8 @@ export default function Home() {
       setIsRunning(false);
     }
   };
-  
 
   const handleToggleClick = () => {
-    // Toggle between showing the description and results
     setShowResults(!showResults);
   };
 
@@ -158,16 +167,14 @@ export default function Home() {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [code, language]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4 pb-28 mt-[80px]">
-      {/* Confetti effect that appears when all tests pass */}
       {showConfetti && <Confetti />}
-
       <div className="max-w-7xl mx-auto space-y-4">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-4">
@@ -176,25 +183,20 @@ export default function Home() {
             </h1>
             <span className="text-sm text-gray-400">Press Ctrl+Enter to run</span>
           </div>
-
-          {/* Language Selector */}
           <LanguageSelector language={language} setLanguage={setLanguage} />
         </div>
 
-        {/* Problem Selection Dropdown */}
         <div className="mb-4">
           <select
             className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors duration-200 hover:border-blue-500"
-            value={selectedProblem.id}
+            value={selectedProblem?._id}
             onChange={(e) => {
-              const selected = problems.find(
-                (problem) => problem.id === Number(e.target.value)
-              );
+              const selected = problems.find((problem) => problem._id === e.target.value);
               setSelectedProblem(selected || null);
             }}
           >
             {problems.map((problem) => (
-              <option key={problem.id} value={problem.id} className="bg-gray-800">
+              <option key={problem._id} value={problem._id} className="bg-gray-800">
                 {problem.title}
               </option>
             ))}
@@ -220,9 +222,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Output Panel and Toggle Button */}
-          <div className="relative ">
-            {/* Toggle Button */}
+          <div className="relative">
             <button
               onClick={handleToggleClick}
               className="absolute top-4 right-10 bg-gray-700 text-white px-3 py-1 rounded-lg text-sm"
@@ -231,22 +231,19 @@ export default function Home() {
             </button>
 
             <div className="w-full overflow-auto h-[calc(100vh-12rem)] overflow-y-auto bg-gray-800 p-4 rounded-lg border-1 border-gray-700">
-              {/* Show Description */}
               {!showResults && (
                 <div className="text-white">
-                  <h2 className="text-lg font-semibold">{selectedProblem.title}</h2>
-                  <p>{selectedProblem.description}</p>
+                  <h2 className="text-lg font-semibold">{selectedProblem?.title}</h2>
+                  <p>{selectedProblem?.description}</p>
                 </div>
               )}
 
-              {/* Show Empty Output Before Code Is Run */}
               {showResults && !hasRunCode && (
                 <div className="text-white text-center">
                   <p>No output yet. Run the code to see the results.</p>
                 </div>
               )}
 
-              {/* Show Test Case Results After Code is Run */}
               {showResults && hasRunCode && <OutputPanel output={output} error={error} />}
             </div>
           </div>

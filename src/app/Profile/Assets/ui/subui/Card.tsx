@@ -24,11 +24,12 @@ const Card: React.FC<CardProps> = ({ title , type}) => {
 <div className='flex justify-between '>
 <p className='text-[#626164] text-[10px] font-medium font-tektur ml-[6px]'>{type}</p>
 <Button 
-  children="Use" 
   top="0px" 
   left="0px" 
   pos={` w-[77px] h-[23px] mr-[10px] `}
-/>
+>
+  Use
+</Button>
 </div>
 
 </div>

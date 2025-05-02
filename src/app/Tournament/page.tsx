@@ -22,7 +22,7 @@ const page = () => {
 
         <div className='h-[452px] w-[490px] mt-[67px] ml-[86px]'>
         <Heading title="Tournament: 2nd week"/>
-        <ProblemCard first title="Palindrome Number" points={30} difficulty="easy" />
+        <ProblemCard first title="Sum Of Two Numbers" points={30} difficulty="easy" />
         <ProblemCard title="Binary Tree Zigzag" points={50} difficulty="medium" />
         <ProblemCard title="DP Grid Paths" points={100} difficulty="hard" />
         </div>
