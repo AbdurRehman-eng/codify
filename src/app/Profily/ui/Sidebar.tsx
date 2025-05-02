@@ -1,77 +1,53 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface SidebarProps {
   username: string;
+  initialPfp: string;
+  initialBackground: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ username }) => {
-  const [userAssets, setUserAssets] = useState({
-    pfp: "/assets/images/Profile/SideBar/hollowknight.png",  // Default if not set
-    background: "/assets/images/Profile/SideBar/fortnite.jpg",  // Default if not set
+const Sidebar = ({ username, initialPfp, initialBackground }: SidebarProps) => {
+  const [assets, setAssets] = useState({
+    pfp: initialPfp,
+    background: initialBackground
   });
 
-  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
-    async function fetchUserAssets() {
-      try {
-        const res = await fetch(`/api/users/${username}/sidebar`);
-
-        if (!res.ok) {
-          throw new Error('Failed to fetch assets');
-        }
-        const data = await res.json();
-        if (data.pfp) {
-          setUserAssets((prevAssets) => ({
-            ...prevAssets,
-            pfp: `/assets/images/Store/${data.pfp.trim().toLowerCase()}.png`,
-          }));
-        }
-
-        if (data.background) {
-          setUserAssets((prevAssets) => ({
-            ...prevAssets,
-            background: `/assets/images/Store/${data.background.trim().toLowerCase()}.jpg`,
-          }));
-        }
-      } catch (error) {
-        console.error('Error fetching user assets:', error);
-        setError('Failed to load user assets.');
-      }
-    }
-
-    fetchUserAssets();
-  }, [username]);
-
-
+    setAssets({
+      pfp: initialPfp,
+      background: initialBackground
+    });
+  }, [initialPfp, initialBackground]);
 
   return (
     <div className="w-[320px] h-[482px] mt-[144px] ml-[66px] mb-[40px] flex flex-col items-center">
-      {error && <p className="text-red-500">{error}</p>}
-
-      <div className="w-full h-[107px] rounded-[12px] relative">
+      {/* Background Image - Fixed to show full image */}
+      <div className="w-full h-[107px] rounded-[12px] relative overflow-hidden">
         <Image
-          src={userAssets.background}
-          alt="User Background"
-          width={320}
-          height={107}
-          className="w-full h-[107px] rounded-[12px] object-cover object-center"
-          quality={100}
+          src={assets.background}
+          alt="Profile background"
+          fill
+          className="object-cover"
+          style={{ objectFit: 'cover' }}
+          priority
         />
       </div>
 
-      <div className="w-[96px] h-[89px] rounded-[100px] outline outline-2 outline-black -mt-12 flex items-center justify-center z-10">
+      {/* Profile Picture - Fixed to fill circle completely */}
+      <div className="w-24 h-24 rounded-full border-2 border-black -mt-12 z-10 relative overflow-hidden">
         <Image
-          src={userAssets.pfp}
-          alt="Profile Image"
-          width={96}
-          height={89}
-          className="w-full h-full object-cover rounded-[100px]"
-          quality={100}
+          src={assets.pfp}
+          alt="Profile picture"
+          fill
+          className="object-cover"
+          style={{ objectFit: 'cover' }}
+          priority
         />
       </div>
 
+      {/* Rest of your sidebar content */}
       <div className="text-white text-[28px] font-semibold mt-1 font-tektur">
         {username}
       </div>
